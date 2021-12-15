@@ -7,5 +7,5 @@ class FriendSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Friend
-        fields = ['__all__']
+        fields = '__all__'
 
