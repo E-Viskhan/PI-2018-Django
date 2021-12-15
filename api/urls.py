@@ -20,10 +20,13 @@ from rest_framework import routers, serializers, viewsets
 
 
 # Serializers define the API representation.
-class UserSerializer(serializers.HyperlinkedModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
+
+    created_at = serializers.CharField(source='date_joined')
+
     class Meta:
         model = User
-        fields = ['url', 'username', 'email', 'is_staff']
+        fields = ['email', 'first_name', 'last_name', 'created_at']
 
 
 # ViewSets define the view behavior.
