@@ -1,5 +1,5 @@
 from rest_framework import viewsets
-from models import Friend
+from friends.models import Friend
 
 from friends.serializers import FriendSerializer
 
