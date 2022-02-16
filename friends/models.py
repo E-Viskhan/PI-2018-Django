@@ -7,6 +7,9 @@ class Friend(models.Model):
 
     created_at = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return f'{self.first_contact} + {self.second_contact}'
+
     class Meta:
         unique_together = ('first_contact', 'second_contact')
 
