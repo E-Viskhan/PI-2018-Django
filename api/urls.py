@@ -4,6 +4,7 @@ from django.urls import path, include
 from .router import router as users_router
 from contacts.router import router as contacts_router
 from friends.router import router as friends_router
+from users.router import router as users_router
 
 
 urlpatterns = [

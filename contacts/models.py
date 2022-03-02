@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
+from users.models import CustomUser
 
 
 class Address(models.Model):
@@ -9,16 +9,16 @@ class Address(models.Model):
 
     house = models.CharField(max_length=50)
 
-    flat = models.IntegerField(max_length=10, null=True, blank=True)
+    flat = models.IntegerField(null=True, blank=True)
 
-    zip_code = models.IntegerField(max_length=20)
+    zip_code = models.IntegerField()
 
     def __str__(self):
         return f'{self.house} {self.street} {self.city}'
 
 
 class Contact(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
 
     phone = models.CharField(max_length=30)
 
