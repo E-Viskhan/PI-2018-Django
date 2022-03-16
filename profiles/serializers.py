@@ -1,9 +1,23 @@
 from rest_framework import serializers
 
-from profiles.models import Profile
+from profiles.models import Profile, Contacts
+from users.serializers import PhotosSerializer
+
+
+class ContactsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Contacts
+        fields = '__all__'
 
 
 class ProfileSerializer(serializers.ModelSerializer):
+    name = serializers.CharField(source='user.first_name')
+    contacts = ContactsSerializer()
+    photos = serializers.SerializerMethodField()
+
+    def get_photos(self, obj):
+        serializer = PhotosSerializer(obj.user.photos)
+        return serializer.data
 
     class Meta:
         model = Profile

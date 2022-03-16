@@ -3,6 +3,12 @@ from rest_framework import serializers
 from follows.models import Follow
 
 
+class StatusSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CustomUser
+        fields = ['status']
+
+
 class PhotosSerializer(serializers.ModelSerializer):
     class Meta:
         model = Photos

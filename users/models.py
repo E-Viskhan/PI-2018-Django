@@ -6,6 +6,9 @@ class Photos(models.Model):
     small = models.CharField(max_length=8000)
     large = models.CharField(max_length=8000)
 
+    class Meta:
+        verbose_name_plural = 'Photos'
+
 
 class CustomUser(AbstractUser):
     status = models.CharField(max_length=1024)
