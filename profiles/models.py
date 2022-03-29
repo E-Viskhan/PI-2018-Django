@@ -4,14 +4,14 @@ from users.models import CustomUser
 
 
 class Contacts(models.Model):
-    github = models.CharField(max_length=1000)
-    vk = models.CharField(max_length=1000)
-    facebook = models.CharField(max_length=1000)
-    instagram = models.CharField(max_length=1000)
-    twitter = models.CharField(max_length=1000)
-    website = models.CharField(max_length=1000)
-    youtube = models.CharField(max_length=1000)
-    mainLink = models.CharField(max_length=1000)
+    github = models.CharField(max_length=1000, null=True, blank=True)
+    vk = models.CharField(max_length=1000, null=True, blank=True)
+    facebook = models.CharField(max_length=1000, null=True, blank=True)
+    instagram = models.CharField(max_length=1000, null=True, blank=True)
+    twitter = models.CharField(max_length=1000, null=True, blank=True)
+    website = models.CharField(max_length=1000, null=True, blank=True)
+    youtube = models.CharField(max_length=1000, null=True, blank=True)
+    mainLink = models.CharField(max_length=1000, null=True, blank=True)
 
     def __str__(self):
         return self.mainLink

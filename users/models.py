@@ -11,8 +11,10 @@ class Photos(models.Model):
 
 
 class CustomUser(AbstractUser):
+    lookingForAJob = models.BooleanField(default=False)
+    lookingForAJobDescription = models.CharField(max_length=1024)
     status = models.CharField(max_length=1024)
     photos = models.ForeignKey(Photos, on_delete=models.SET_NULL, null=True, blank=True)
 
     def __str__(self):
-        return self.email
+        return self.get_full_name()
