@@ -13,6 +13,6 @@ class UserViewSet(viewsets.ModelViewSet):
 
     def list(self, request, *args, **kwargs):
         users = CustomUser.objects.all()
-
         serializer = UserSerializer(users, many=True, context={'request': request})
+
         return Response(data=serializer.data)
