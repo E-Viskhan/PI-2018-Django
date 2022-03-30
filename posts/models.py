@@ -26,6 +26,7 @@ class Post(models.Model):
     text = models.TextField(max_length=10000)
     author = models.ForeignKey(Profile, on_delete=models.CASCADE, null=True, blank=True)
     photos = models.ForeignKey(PostPhotos, on_delete=models.SET_NULL, null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
 
     class Meta:
         verbose_name_plural = 'Posts'
