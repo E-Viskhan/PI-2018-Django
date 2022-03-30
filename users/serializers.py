@@ -19,13 +19,6 @@ class UserSerializer(serializers.ModelSerializer):
     def get_status(self, user):
         profile = user.profile
         return StatusSerializer(profile).data
-    #photos
-    # новый апп две модели, сериализаторы, добавить админку, связки двух моделей.
-    # posts app -> post & image & post image nullable  & post [text, author: profile)
-    # 5 - strange social network with only 5 posts a day
-    # viewset ovverride create check posts a day posts have datefield
-    # posts.objects.filter if posts more than 5 return exception
-
 
     def get_followed(self, user):
         me = self.context['request'].user
