@@ -2,9 +2,9 @@ from django.contrib import admin
 from django.urls import path, include
 
 from follows.router import router as follows_router
-from users.router import router as users_router
-from profiles.router import router as profiles_router
 from posts.router import router as posts_router
+from profiles.router import router as profiles_router
+from users.router import router as users_router
 
 urlpatterns = [
     path('admin/', admin.site.urls),
