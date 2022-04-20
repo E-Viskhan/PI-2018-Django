@@ -4,9 +4,15 @@ from follows.query import Query as FollowsQuery
 from posts.query import Query as PostsQuery
 from profiles.query import Query as ProfileQuery
 
+from profiles.mutations import ProfileMutation
+
 
 class Query(FollowsQuery, PostsQuery, UsersQuery, ProfileQuery):
     pass
 
 
-schema = graphene.Schema(query=Query)
+class Mutation(ProfileMutation):
+    pass
+
+
+schema = graphene.Schema(query=Query, mutation=Mutation)
